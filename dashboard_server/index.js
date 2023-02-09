@@ -46,8 +46,7 @@ let SERVER_PORT = 4000;
 const app = express();
 
 const store = new MongoDBStore({
-    uri:'mongodb+srv://IOT_Smart_meter:IOT_Smart_meter@cluster0.askalv1.mongodb.net/test' ,
-    //mongodb://localhost:27017/dashboard
+    uri:'<mongodb connection link>',
     collection: 'sessions'
 });
 app.use(session({secret: 'my secret', resave: false, saveUninitialized: false, store: store}));
@@ -79,7 +78,7 @@ app.use('/', (req, res) => {
 
 sequelize.sync().then(res=>{
     console.log("sql synced");
-    mongoose.connect('mongodb+srv://IOT_Smart_meter:IOT_Smart_meter@cluster0.askalv1.mongodb.net/test')
+    mongoose.connect('<mongodb connection link>')
         .then(result => {
             if (result) {
 
